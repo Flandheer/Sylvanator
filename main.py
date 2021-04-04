@@ -11,6 +11,7 @@ def sylvanator(csv_file):
     df['dayofweek'] = list(df['date'].map(str) + " " + pd.to_datetime(df['date'], format='%Y-%m-%d').dt.day_name() )
     new = list(df['description'].map(str)+ " "+ df['name.1'].map(str) + " "+ df['weight'].map(str)+ " "+ df['name.2'].map(str))
     df['new'] = new
+    df = df.drop_duplicates(subset=["name", "dayofweek"])
     sylvanator = df.pivot(index = 'name', columns = 'dayofweek')['new']
 
     print(sylvanator.head())

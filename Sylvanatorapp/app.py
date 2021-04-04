@@ -1,7 +1,7 @@
 import sys
 import openpyxl
 
-sys.path.append('..\Sylvanatorapp')
+sys.path.append('../')
 dir()
 
 from flask import Flask, render_template, request, send_file
@@ -27,6 +27,7 @@ def convert():
 
 @app.route('/download')
 def download_file():
+    output = "..\sylvanator.xlsx"
     return send_file(output, as_attachment=True)
 
 
