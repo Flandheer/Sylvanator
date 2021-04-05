@@ -25,12 +25,6 @@ def convert():
     return send_file(output, as_attachment=True)
 
 
-@app.route('/download')
-def download_file():
-    output = "..\sylvanator.xlsx"
-    return send_file(output, as_attachment=True)
-
-
 @app.route('/')
 def main():
     render_template
