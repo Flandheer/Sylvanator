@@ -12,7 +12,7 @@ def sylvanator(csv_file):
     new = list(df['loadlocation'].map(str) + " > "+ df['dischargeLocation'].map(str) + " " + df['product'].map(str) + " "+ df['weight'].map(str)+ "t" + " "+ df['volume'].map(str)+ "v"+  " "+ df['supplier'].map(str))
     df["new"] = new
     df = df.drop_duplicates(subset=["loadlocation", "dayofweek"])
-    sylvanator = df.pivot(index = 'loadlocation', columns = 'dayofweek')['new']
+    sylvanator = df.pivot(index = 'ship', columns = 'dayofweek')['new']
 
     print(sylvanator.head())
 
